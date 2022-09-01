@@ -1,0 +1,24 @@
+.footer {
+  height: 150px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #134074;
+  padding: 0 40px;
+}
+
+.footer h3 {
+  font-size: 1.175rem;
+  font-weight: 500;
+  color: #eee;
+}
+
+.footer p a {
+  color: #eee;
+  font-style: italic;
+  transition: all 0.5s;
+}
+
+.footer p:hover a {
+  color: #999;
+}
