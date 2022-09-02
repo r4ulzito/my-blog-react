@@ -20,15 +20,15 @@
 
 .nav_links {
   display: flex;
-  gap: 15px;
+  gap: 5px;
 }
 
 .nav_links li a {
   color: #000;
   font-size: 1.125rem;
   font-weight: 500;
-  padding: 0.5rem 0.9rem;
-  border-radius: 3px;
+  padding: 0.3rem 0.7rem;
+  border-radius: 2px;
   transition: all 0.3s;
 }
 
@@ -38,5 +38,5 @@
 
 .nav_links li a.active {
   background-color: #134074;
-  color: #eee;
+  color: #fff;
 }

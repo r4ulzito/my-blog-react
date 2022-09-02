@@ -3,14 +3,121 @@ body {
   margin: 0;
   box-sizing: border-box;
   font-family: "Hind Siliguri", sans-serif;
-}
-
-body,
-a {
-  text-decoration: none;
+  background-color: #f6fcff;
 }
 
 ul,
 li {
   list-style: none;
+}
+
+input::placeholder,
+textarea::placeholder {
+  font-family: "Hind Siliguri", sans-serif;
+  color: #aaa;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-bottom: 2px solid #134074;
+  transition: 0.3s;
+}
+
+a,
+nav button {
+  text-decoration: none;
+  background-color: transparent;
+  border: none;
+  color: #000;
+  transition: 0.4s;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+p {
+  color: #bbb;
+  margin: 0;
+}
+
+/* forms */
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+}
+
+label span {
+  margin-bottom: 0.1rem;
+  font-weight: bold;
+  font-size: 1.125rem;
+  color: #134074;
+}
+
+input,
+textarea {
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid #8da9c4;
+  background-color: transparent;
+  padding: 8px 5px;
+  font-family: "Hind Siliguri", sans-serif;
+}
+
+.btn {
+  background-color: #134074;
+  padding: 8px 30px;
+  color: #f6fcff;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: "Hind Siliguri", sans-serif;
+  font-weight: bold;
+  transition: all 0.5s;
+}
+
+.btn:hover {
+  background-color: #15539b;
+}
+
+.btn.btn-dark {
+  color: #000;
+  border-radius: 0;
+}
+
+.btn.btn-outline {
+  background-color: transparent;
+  border-radius: 0;
+  color: #134074;
+  border: 2px solid #134074;
+  padding: 7px 30px;
+}
+
+.btn.btn-outline:hover {
+  color: #f6fcff;
+  background-color: #134074;
+}
+
+.btn.btn-danger:hover {
+  background-color: #dc3545;
+}
+
+button[disabled] {
+  background-color: #aaa;
+}
+
+.container .error {
+  color: #721c24;
+  background-color: #f8d7da;
+  border: 2px 1px #f5c6cb;
+  padding: 5px;
+  border-radius: 4px;
 }
