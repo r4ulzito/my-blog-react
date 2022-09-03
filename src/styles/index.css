@@ -15,6 +15,7 @@ input::placeholder,
 textarea::placeholder {
   font-family: "Hind Siliguri", sans-serif;
   color: #aaa;
+  font-size: 1rem;
 }
 
 input:focus,
@@ -69,6 +70,8 @@ textarea {
   background-color: transparent;
   padding: 8px 5px;
   font-family: "Hind Siliguri", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 .btn {

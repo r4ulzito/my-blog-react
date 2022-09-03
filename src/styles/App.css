@@ -2,3 +2,7 @@
   min-height: 70vh;
   margin-bottom: 5rem;
 }
+
+.Toastify__toast-body {
+  font-family: "Hind Siliguri", sans-serif;
+}

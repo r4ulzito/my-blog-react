@@ -1,7 +1,9 @@
 import "./styles/App.css";
+import "react-toastify/dist/ReactToastify.min.css";
 
 // react
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 
 // components
 import Navbar from "./components/Navbar/Navbar";
@@ -28,6 +30,8 @@ function App() {
         </div>
         <Footer />
       </BrowserRouter>
+
+      <ToastContainer />
     </div>
   );
 }
