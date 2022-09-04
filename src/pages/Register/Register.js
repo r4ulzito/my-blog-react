@@ -12,7 +12,20 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const { createUser, error: authError, loading } = useAuthentication();
+  // limpa os inputs
+  const clearInputs = () => {
+    setDisplayName("");
+    setEmail("");
+    setPassword("");
+    setConfirmPassword("");
+  };
+
+  const {
+    createUser,
+    error: authError,
+    loading,
+    setLoading,
+  } = useAuthentication();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,12 +38,16 @@ const Register = () => {
 
     if (password !== confirmPassword) {
       toast.error("As senhas devem ser iguais!");
+      setLoading(false);
       return;
     }
 
     const res = await createUser(user);
 
-    console.log(res);
+    if (typeof res === "object") {
+      toast.success("Usuário cadastrado com sucesso!");
+      clearInputs();
+    }
   };
 
   useEffect(() => {
