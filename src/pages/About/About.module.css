@@ -1,0 +1,23 @@
+.about {
+  padding-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.about h1 {
+  margin: 0;
+}
+
+.about h1 span {
+  color: #134074;
+}
+
+.about p {
+  font-size: 1.125rem;
+}
+
+.about a {
+  margin-top: 3rem;
+}

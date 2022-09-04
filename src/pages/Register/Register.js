@@ -6,6 +6,9 @@ import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import { useAuthentication } from "../../hooks/useAuthentication";
 
+// components
+import Loader from "../../components/Loader";
+
 const Register = () => {
   const [displayName, setDisplayName] = useState("");
   const [email, setEmail] = useState("");
@@ -112,11 +115,7 @@ const Register = () => {
           </label>
         </div>
         {!loading && <button className="btn">Cadastrar</button>}
-        {loading && (
-          <button className="btn" disabled>
-            Aguarde...
-          </button>
-        )}
+        {loading && <Loader />}
       </form>
     </div>
   );
