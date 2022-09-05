@@ -16,6 +16,7 @@ import { AuthProvider } from "./context/AuthContext";
 // components
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
+import Spinner from "react-spinner-material";
 
 // pages
 import Home from "./pages/Home/Home";
@@ -39,7 +40,18 @@ function App() {
   }, [auth]);
 
   if (loadingUser) {
-    return <p style={{ textAlign: "center" }}>Carregando...</p>;
+    return (
+      <div
+        style={{
+          display: "flex",
+          height: "100vh",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Spinner radius={120} color={"#134074"} stroke={3} visible={true} />
+      </div>
+    );
   }
 
   return (

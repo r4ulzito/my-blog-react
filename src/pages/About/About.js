@@ -9,8 +9,8 @@ const About = () => {
         Sobre o <span>MyBlog</span>
       </h1>
       <p>
-        Este projeto foi desenvolvido com React.js no front-end e Firebase no
-        back-end
+        Este projeto foi desenvolvido com React.js e Firebase a fins de estudo e
+        implementação em portfólio
       </p>
       <Link to="/posts/create" className="btn">
         Crie seus posts

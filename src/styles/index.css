@@ -25,15 +25,23 @@ textarea:focus {
   transition: 0.3s;
 }
 
-a,
-nav button {
+a {
   text-decoration: none;
+}
+
+nav button {
   background-color: transparent;
   border: none;
   color: #000;
-  transition: 0.4s;
-  font-size: 1rem;
+  font-size: 1.125rem;
+  font-weight: 500;
+  transition: all 0.3s;
   cursor: pointer;
+  font-family: "Hind Siliguri", sans-serif;
+}
+
+nav button:hover {
+  color: #7777;
 }
 
 p {
@@ -57,7 +65,7 @@ label {
 
 label span {
   margin-bottom: 0.1rem;
-  font-weight: bold;
+  font-weight: 500;
   font-size: 1.125rem;
   color: #134074;
 }

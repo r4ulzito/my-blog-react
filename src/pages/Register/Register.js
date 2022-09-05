@@ -5,9 +5,7 @@ import styles from "./Register.module.css";
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import { useAuthentication } from "../../hooks/useAuthentication";
-
-// components
-import Loader from "../../components/Loader";
+import Spinner from "react-spinner-material";
 
 const Register = () => {
   const [displayName, setDisplayName] = useState("");
@@ -115,7 +113,9 @@ const Register = () => {
           </label>
         </div>
         {!loading && <button className="btn">Cadastrar</button>}
-        {loading && <Loader />}
+        {loading && (
+          <Spinner radius={40} color={"#134074"} stroke={3} visible={true} />
+        )}
       </form>
     </div>
   );
