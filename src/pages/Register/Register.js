@@ -111,8 +111,9 @@ const Register = () => {
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
           </label>
+          {!loading && <button className="btn">Cadastrar</button>}
         </div>
-        {!loading && <button className="btn">Cadastrar</button>}
+
         {loading && (
           <Spinner radius={40} color={"#134074"} stroke={3} visible={true} />
         )}

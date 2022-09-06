@@ -5,8 +5,9 @@ import styles from "./CreatePost.module.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthValue } from "../../context/AuthContext";
-import { useAuthentication } from "../../hooks/useAuthentication";
 import Spinner from "react-spinner-material";
+import { useInsertDocument } from "../../hooks/useInsertDocument";
+import { toast } from "react-toastify";
 
 const CreatePost = () => {
   const [title, setTitle] = useState("");
@@ -14,11 +15,48 @@ const CreatePost = () => {
   const [body, setBody] = useState("");
   const [tags, setTags] = useState([]);
 
-  const { error: authError, loading } = useAuthentication();
+  const { user } = useAuthValue();
+  const { insertDocument, response, loading } = useInsertDocument("posts");
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    //validação da url de imagem
+    try {
+      new URL(image);
+    } catch (error) {
+      toast.error("A imagem precisa ser uma URL!");
+      return;
+    }
+
+    // cria array de tags
+    const tagsArray = tags.split(",").map((tag) => tag.trim().toLowerCase());
+
+    // checar todos os valores
+    if (!title || !image || !tags || !body) {
+      toast.error("Por favor, preencha todos os campos!");
+      return;
+    }
+
+    insertDocument({
+      title,
+      image,
+      body,
+      tagsArray,
+      uid: user.uid,
+      createdBy: user.displayName,
+    });
+
+    toast.success("Post compartilhado com sucesso!");
+
+    // redirect pra home
+    navigate("/");
   };
+
+  if (response.error) {
+    toast.error(response.error);
+  }
 
   return (
     <div className={styles.create_post}>
@@ -33,6 +71,7 @@ const CreatePost = () => {
               name="image"
               onChange={(e) => setImage(e.target.value)}
               placeholder="Insira uma imagem ex: https://imagens/imagem"
+              autoComplete="off"
             />
           </label>
           <label>
@@ -64,12 +103,16 @@ const CreatePost = () => {
               name="tags"
               value={tags}
               onChange={(e) => setTags(e.target.value)}
-              placeholder="Insira as tags separadas por vírgulas ex: tag,tag,tag"
+              placeholder="Insira as tags separadas por vírgulas ex: tag, tag, tag"
               required
             />
           </label>
+          {!loading && (
+            <button className="btn" onClick={handleSubmit}>
+              Compartilhar
+            </button>
+          )}
         </div>
-        {!loading && <button className="btn">Compartilhar</button>}
         {loading && (
           <Spinner radius={40} color={"#134074"} stroke={3} visible={true} />
         )}

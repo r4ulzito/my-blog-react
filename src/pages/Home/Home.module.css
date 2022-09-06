@@ -1,0 +1,52 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home form {
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+
+.query_container {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.query_container input {
+  width: 500px;
+}
+
+.query_container button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: #134074;
+  padding: 0 12px;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.query_container button:hover {
+  background-color: #15539b;
+}
+
+.no_posts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+  gap: 20px;
+}
+
+.no_posts p {
+  font-size: 1.2rem;
+}
+
+.no_posts a {
+  padding: 5px 20px;
+  font-weight: 400;
+}

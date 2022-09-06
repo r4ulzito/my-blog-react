@@ -21,7 +21,7 @@ textarea::placeholder {
 input:focus,
 textarea:focus {
   outline: none;
-  border-bottom: 2px solid #134074;
+  border-color: #134074;
   transition: 0.3s;
 }
 
@@ -54,7 +54,6 @@ p {
 form {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 30px;
 }
 
@@ -91,16 +90,11 @@ textarea {
   font-weight: 500;
   cursor: pointer;
   font-family: "Hind Siliguri", sans-serif;
-  font-weight: bold;
   transition: all 0.5s;
 }
 
-.btn:hover {
-  background-color: #15539b;
-}
-
 .btn.btn-dark {
-  color: #000;
+  color: #f6fcff;
   border-radius: 0;
 }
 
@@ -110,6 +104,10 @@ textarea {
   color: #134074;
   border: 2px solid #134074;
   padding: 7px 30px;
+}
+
+.btn:hover {
+  background-color: #15539b;
 }
 
 .btn.btn-outline:hover {
