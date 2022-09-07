@@ -100,7 +100,7 @@ textarea {
 
 .btn.btn-outline {
   background-color: transparent;
-  border-radius: 0;
+  border-radius: 2px;
   color: #134074;
   border: 2px solid #134074;
   padding: 7px 30px;

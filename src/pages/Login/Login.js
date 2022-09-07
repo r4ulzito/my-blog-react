@@ -68,13 +68,12 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </label>
-          {!loading && <button className="btn">Entrar</button>}
         </div>
-
-        {loading && (
-          <Spinner radius={40} color={"#134074"} stroke={3} visible={true} />
-        )}
+        {!loading && <button className="btn">Entrar</button>}
       </form>
+      {loading && (
+        <Spinner radius={40} color={"#134074"} stroke={3} visible={true} />
+      )}
     </div>
   );
 };
