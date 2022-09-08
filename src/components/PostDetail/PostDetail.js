@@ -5,6 +5,10 @@ import styles from "./PostDetail.module.css";
 import { Link } from "react-router-dom";
 
 const PostDetail = ({ post }) => {
+  const handleClick = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <div className={styles.post_detail}>
       <img src={post.image} alt={post.title} />
@@ -21,7 +25,11 @@ const PostDetail = ({ post }) => {
             ))}
           </div>
         </div>
-        <Link to={`/posts/${post.id}`} className="btn btn-outline">
+        <Link
+          onClick={handleClick}
+          to={`/posts/${post.id}`}
+          className="btn btn-outline"
+        >
           Ler
         </Link>
       </div>

@@ -55,6 +55,7 @@ form {
   display: flex;
   flex-direction: column;
   gap: 30px;
+  margin-bottom: 30px;
 }
 
 label {
@@ -91,11 +92,6 @@ textarea {
   cursor: pointer;
   font-family: "Hind Siliguri", sans-serif;
   transition: all 0.5s;
-}
-
-.btn.btn-dark {
-  color: #f6fcff;
-  border-radius: 0;
 }
 
 .btn.btn-outline {

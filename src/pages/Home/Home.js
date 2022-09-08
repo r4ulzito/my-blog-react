@@ -8,15 +8,20 @@ import styles from "./Home.module.css";
 import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
 import { useFetchDocuments } from "../../hooks/useFetchDocuments";
-import Spinner from "react-spinner-material";
 import PostDetail from "../../components/PostDetail/PostDetail";
 
 const Home = () => {
   const [query, setQuery] = useState("");
-  const { documents: posts, loading, error } = useFetchDocuments("posts");
+  const { documents: posts } = useFetchDocuments("posts");
+  const navigate = useNavigate();
 
+  // evento de busca
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (query) {
+      return navigate(`search?q=${query}`);
+    }
   };
 
   return (
@@ -29,13 +34,10 @@ const Home = () => {
             onChange={(e) => setQuery(e.target.value)}
           />
           <button>
-            <img src={SearchImg} alt="search icon" />
+            <img src={SearchImg} alt="search icon" onClick={handleSubmit} />
           </button>
         </div>
       </form>
-      {loading && (
-        <Spinner radius={40} color={"#134074"} stroke={3} visible={true} />
-      )}
       {posts && posts.map((post) => <PostDetail key={post.id} post={post} />)}
       {posts && posts.length === 0 && (
         <div className={styles.no_posts}>

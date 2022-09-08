@@ -113,10 +113,10 @@ const CreatePost = () => {
             </button>
           )}
         </div>
-        {loading && (
-          <Spinner radius={40} color={"#134074"} stroke={3} visible={true} />
-        )}
       </form>
+      {loading && (
+        <Spinner radius={40} color={"#134074"} stroke={3} visible={true} />
+      )}
     </div>
   );
 };
