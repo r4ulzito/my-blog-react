@@ -9,6 +9,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
 import { useFetchDocuments } from "../../hooks/useFetchDocuments";
 import PostDetail from "../../components/PostDetail/PostDetail";
+import Spinner from "react-spinner-material";
 
 const Home = () => {
   const [query, setQuery] = useState("");
@@ -33,8 +34,8 @@ const Home = () => {
             placeholder="Busque por tags de seu interesse..."
             onChange={(e) => setQuery(e.target.value)}
           />
-          <button>
-            <img src={SearchImg} alt="search icon" onClick={handleSubmit} />
+          <button onClick={handleSubmit}>
+            <img src={SearchImg} alt="search icon" />
           </button>
         </div>
       </form>
