@@ -5,16 +5,25 @@ import styles from "./Dashboard.module.css";
 import { Link } from "react-router-dom";
 import { useAuthValue } from "../../context/AuthContext";
 import { useFetchDocuments } from "../../hooks/useFetchDocuments";
+import Spinner from "react-spinner-material";
 
 const Dashboard = () => {
   const { user } = useAuthValue();
   const uid = user.uid;
 
   // posts do usuario
-  const posts = [];
+  const { documents: posts, loading } = useFetchDocuments("posts", null, uid);
+
+  const deleteDocument = (id) => {};
+
+  if (loading) {
+    <div className={styles.loader_container}>
+      <Spinner radius={40} color={"#134074"} stroke={3} visible={true} />
+    </div>;
+  }
 
   return (
-    <div>
+    <div className={styles.dashboard_container}>
       <h1>Dashboard</h1>
       <p>Gerencie os seus posts</p>
       {posts && posts.length === 0 ? (
@@ -25,7 +34,30 @@ const Dashboard = () => {
           </Link>
         </div>
       ) : (
-        <div>TEM POST</div>
+        <div className={styles.dashboard_content}>
+          <div className={styles.content_header}>
+            <span>Titúlo</span>
+            <span>Ações</span>
+          </div>
+          {posts &&
+            posts.map((post) => (
+              <div key={post.id} className={styles.post_row}>
+                <p>{post.title}</p>
+                <Link to={`/posts/${post.id}`} className="btn btn-outline">
+                  Ver
+                </Link>
+                <Link to={`/posts/edit/${post.id}`} className="btn btn-outline">
+                  Editar
+                </Link>
+                <button
+                  onClick={() => deleteDocument(post.id)}
+                  className="btn btn-outline btn-danger"
+                >
+                  Excluir
+                </button>
+              </div>
+            ))}
+        </div>
       )}
     </div>
   );

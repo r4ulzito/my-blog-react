@@ -1,0 +1,42 @@
+.loader_container {
+  display: flex;
+  justify-content: center;
+}
+
+.dashboard_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.dashboard_container h1 {
+  margin: 0;
+}
+
+.dashboard_content {
+  width: 70%;
+}
+
+.dashboard_content .content_header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2rem;
+}
+
+.no_posts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+  gap: 20px;
+}
+
+.no_posts p {
+  font-size: 1.2rem;
+}
+
+.no_posts a {
+  padding: 5px 20px;
+  font-weight: 400;
+}

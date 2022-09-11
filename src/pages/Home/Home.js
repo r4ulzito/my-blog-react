@@ -9,7 +9,6 @@ import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
 import { useFetchDocuments } from "../../hooks/useFetchDocuments";
 import PostDetail from "../../components/PostDetail/PostDetail";
-import Spinner from "react-spinner-material";
 
 const Home = () => {
   const [query, setQuery] = useState("");
