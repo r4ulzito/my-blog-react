@@ -36,25 +36,30 @@ const Dashboard = () => {
       ) : (
         <div className={styles.dashboard_content}>
           <div className={styles.content_header}>
-            <span>Titúlo</span>
+            <span>Post</span>
             <span>Ações</span>
           </div>
           {posts &&
             posts.map((post) => (
               <div key={post.id} className={styles.post_row}>
                 <p>{post.title}</p>
-                <Link to={`/posts/${post.id}`} className="btn btn-outline">
-                  Ver
-                </Link>
-                <Link to={`/posts/edit/${post.id}`} className="btn btn-outline">
-                  Editar
-                </Link>
-                <button
-                  onClick={() => deleteDocument(post.id)}
-                  className="btn btn-outline btn-danger"
-                >
-                  Excluir
-                </button>
+                <div className={styles.post_row_buttons}>
+                  <Link to={`/posts/${post.id}`} className="btn btn-outline">
+                    Ver
+                  </Link>
+                  <Link
+                    to={`/posts/edit/${post.id}`}
+                    className="btn btn-outline"
+                  >
+                    Editar
+                  </Link>
+                  <button
+                    onClick={() => deleteDocument(post.id)}
+                    className="btn btn-outline btn-danger"
+                  >
+                    Excluir
+                  </button>
+                </div>
               </div>
             ))}
         </div>

@@ -15,13 +15,36 @@
 }
 
 .dashboard_content {
-  width: 70%;
+  margin-top: 2rem;
+  width: 60%;
 }
 
 .dashboard_content .content_header {
   display: flex;
   justify-content: space-between;
   font-size: 1.2rem;
+  padding: 0 5px;
+  border-bottom: 2px solid #134074;
+  font-weight: bold;
+  color: #134074;
+}
+
+.post_row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 10px;
+  border-bottom: 2px solid #8da9c4;
+}
+
+.post_row a,
+.post_row button {
+  width: 100px;
+  margin: 0 5px;
+}
+
+.post_row button {
+  height: 40px;
 }
 
 .no_posts {
