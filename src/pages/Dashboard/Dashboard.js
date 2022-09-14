@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import { useAuthValue } from "../../context/AuthContext";
 import { useFetchDocuments } from "../../hooks/useFetchDocuments";
 import Spinner from "react-spinner-material";
+import { useDeleteDocument } from "../../hooks/useDeleteDocument";
+import { toast } from "react-toastify";
 
 const Dashboard = () => {
   const { user } = useAuthValue();
@@ -13,8 +15,14 @@ const Dashboard = () => {
 
   // posts do usuario
   const { documents: posts, loading } = useFetchDocuments("posts", null, uid);
+  const { deleteDocument, error } = useDeleteDocument("posts");
 
-  const deleteDocument = (id) => {};
+  const handleClick = (id) => {
+    if (!error) {
+      deleteDocument(id);
+      toast.success("Post deletado!");
+    }
+  };
 
   if (loading) {
     <div className={styles.loader_container}>
@@ -53,12 +61,12 @@ const Dashboard = () => {
                   >
                     Editar
                   </Link>
-                  <button
-                    onClick={() => deleteDocument(post.id)}
-                    className="btn btn-outline btn-danger"
+                  <span
+                    onClick={() => handleClick(post.id)}
+                    className={styles.delete_btn}
                   >
                     Excluir
-                  </button>
+                  </span>
                 </div>
               </div>
             ))}
