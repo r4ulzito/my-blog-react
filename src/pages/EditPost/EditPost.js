@@ -6,18 +6,18 @@ import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useAuthValue } from "../../context/AuthContext";
 import Spinner from "react-spinner-material";
-import { useInsertDocument } from "../../hooks/useInsertDocument";
+import { useUpdateDocument } from "../../hooks/useUpdateDocument";
 import { toast } from "react-toastify";
 import { useFetchDocument } from "../../hooks/useFetchDocument";
 
 const EditPost = () => {
+  const { id } = useParams();
+  const { document: post } = useFetchDocument("posts", id);
+
   const [title, setTitle] = useState("");
   const [image, setImage] = useState("");
   const [body, setBody] = useState("");
   const [tags, setTags] = useState([]);
-
-  const { id } = useParams();
-  const { document: post } = useFetchDocument("posts", id);
 
   useEffect(() => {
     if (post) {
@@ -26,13 +26,12 @@ const EditPost = () => {
       setBody(post.body);
 
       const textTags = post.tagsArray.join(", ");
-
       setTags(textTags);
     }
   }, [post]);
 
   const { user } = useAuthValue();
-  const { insertDocument, response, loading } = useInsertDocument("posts");
+  const { updateDocument, response, loading } = useUpdateDocument("posts");
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -55,19 +54,21 @@ const EditPost = () => {
       return;
     }
 
-    insertDocument({
+    const data = {
       title,
       image,
       body,
       tagsArray,
       uid: user.uid,
       createdBy: user.displayName,
-    });
+    };
 
-    toast.success("Post compartilhado com sucesso!");
+    updateDocument(id, data);
+
+    toast.success("Post atualizado com sucesso!");
 
     // redirect pra home
-    navigate("/");
+    navigate("/dashboard");
   };
 
   if (response.error) {
