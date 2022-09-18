@@ -1,7 +1,7 @@
 <h1 align="center">👤 MY BLOG</h1>
 
 <div align="center">
-  <img src="https://www.acheicampos.com.br/uploads/advertiser/default_anunciante_thumbnail.png" alt="preview gif">
+  <img src="https://user-images.githubusercontent.com/97764322/190882815-65ce19fa-e158-4a94-9c12-e3257cce2863.gif" alt="preview gif">
 </div>
 
 > 🔎 Um blog onde o usuário pode criar, editar e remover posts
